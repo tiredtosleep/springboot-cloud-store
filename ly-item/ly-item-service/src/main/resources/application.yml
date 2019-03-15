@@ -1,0 +1,37 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/leyou-new?serverTimezone=Asia/Shanghai&characterEncoding=utf8
+    username: root
+    password: cxg200888
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+  #rabbitmq的配置
+  rabbitmq:
+      host: 192.168.25.128
+      username: 2850105498
+      password: cxg200888
+      virtual-host: /leyou
+      template:
+        retry:
+          enabled: true
+          initial-interval: 10000ms
+          max-interval: 30000ms
+          multiplier: 2
+        exchange: ly.item.exchange
+      publisher-confirms: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+#将sql语句输出
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -1,0 +1,18 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: sm-service
+  rabbitmq:
+    host: 192.168.25.128
+    username: 2850105498
+    password: cxg200888
+    virtual-host: /leyou
+  redis:
+    host: 192.168.25.128
+#常量
+ly:
+  sms:
+    url: http://v.juhe.cn/sms/send  # 请求接口地址
+    accessKeySecret: d4eee3375aef4ae683e7782fc4e91f44 # 你自己的key
+    verifyCodeTemplate: 128692 # 模板名称
